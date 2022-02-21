@@ -4,12 +4,17 @@ import Header from "../../components/header";
 // import addHome from "./add";
 import "toastr/build/toastr.min.css";
 import { getAll, remove } from "../../api/cart";
+import { removeItem } from "../../utils/cart";
+import { reRender } from "../../utils";
 
 const giohang = {
     
-    async  render() {
-        const { data } = await getAll();
-        return /*html*/ `
+  render() {
+    let cart = [];
+    if (localStorage.getItem("cart")) {
+        cart = JSON.parse(localStorage.getItem("cart"));
+    }
+    return/* html */ `
         ${Header.render()}
         <div class="rounded-md shadow">
               <a href="/addkm" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700 md:py-4 md:text-lg md:px-10">Giỏ hàng</a>
@@ -22,7 +27,7 @@ const giohang = {
                 <thead class="bg-gray-50">
                   <tr>
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Hình ảnh</th>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nội dung</th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Đơn hàng</th>
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
                     <th scope="col" class="relative px-6 py-3">
                       <button class="btn btn-remove sr-only">Delete</button>
@@ -30,30 +35,42 @@ const giohang = {
                   </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
-                ${data.map((post, index) => /* html */`
+                ${cart.map((item) => /* html */`
                   <tr>
                     <td class="px-6 py-4 whitespace-nowrap">
                       <div class="flex items-center">
                         <div class="flex-shrink-0 h-10 w-10">
-                          <img class="h-10 w-10 rounded-full" src="" alt="">
+                          <img id="${item.img}" class="h-10 w-10 rounded-full" src="" alt="">
                         </div>
                         <div class="ml-4">
-                          <div class="text-sm font-medium text-gray-900"></div>
+                          <div class="text-sm font-medium text-gray-900">${item.name}</div>
                         </div>
                       </div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
                       <div class="flex items-center">
                         <div class="ml-4">
-                          <div class="text-sm font-medium text-gray-900"></div>
+                          <div class="text-sm font-medium text-gray-900">${item.desc}</div>
                         </div>
                         
                       </div>
                     </td>
+                    <td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                     <div class="buttons_added">
+                        <input data-id="${item.id}" class=" btn btn-decrease " type="button" value="-">
+                        <input  aria-label="quantity" class="input-qty" max="10" min="1" name="" type="number" value="${item.quantity}">
+                        <input data-id="${item.id}" class="btn btn-increase " type="button" value="+">
+                        
+                        
+                        
+                      </div>
+                    </td>
+                        </td>
                     <td class="px-6 py-4 whitespace-nowrap">
                       <div class="flex items-center">
                         <div class="ml-4">
-                          <button class="text-sm font-medium text-gray-900">Xóa</button>
+                          <button data-id="${item.id}" class="btn btn-remove text-sm font-medium text-gray-900">Xóa</button>
                         </div>
                         
                       </div>
@@ -67,24 +84,21 @@ const giohang = {
         </div>
       </div> `;
     },
+    
     afterRender() {
-        // lấy toàn bộ button thông qua class
-        const btns = document.querySelectorAll(".btn");
-        // tạo vòng lặp để lấy từng button element
-        btns.forEach((btn) => {
-            // lấy giá trị ID thông qua thuộc tính data-id của button
-            const  id  = btn.dataset.id;
-            btn.addEventListener("click", () => {
-                const confirm = window.confirm("Bạn có chắc chắn muốn xóa không?");
-                if (confirm) {
-                    remove(id).then(() => {
-                        toastr.success("Bạn đã xóa thành công");
-                    }).then(() => {
-                        reRender(giohang, "#app");
-                    });
-                }
-            });
-        });
-    },
+      const btns = document.querySelectorAll(".btn");
+      btns.forEach((btn) => {
+          const { id } = btn.dataset;
+          btn.addEventListener('click', () => {
+            const confirm = window.confirm("Bạn có muốn xóa sản phẩm này không?");
+            if(confirm){
+              removeItem(id, ()=> {
+                reRender(giohang, "#app")
+                toastr.success("Bạn đã xóa thành công");
+                })
+            }
+        })
+      });
+  },
 };
 export default giohang;
