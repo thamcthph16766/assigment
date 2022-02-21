@@ -3,13 +3,13 @@ import Home from "../src/page/home";
 import khuyenmai from "../src/page/khuyenmai";
 import gioithieu from "../src/page/gioithieu";
 import dashboard from "../src/page/admin/dashboard";
-import chitietkm from "./page/chitietkm";
 import chitietsp from "./page/chitietsp";
 import sanpham from "./page/sanpham";
 import sign_in from "./page/sign_in";
 import sign_up from "./page/sign_up";
 import qlsanpham from "./page/admin/qlsanpham";
 import addsp from "./page/admin/addsp";
+import edit from "./page/admin/editsp";
 import qlkhuyenmai from "./page/admin/qlkhuyenmai";
 import giohang from "./page/admin/giohang";
 
@@ -32,6 +32,7 @@ router.on({
     "/sign_up": () => print(sign_up),
     "/qlsanpham": () => print(qlsanpham),
     "/addsp": () => print(addsp),
+    "/admin/qlsanpham/:id/edit": ({ data }) => print(edit, data.id),
     "/qlkhuyenmai": () => print(qlkhuyenmai),
     "/giohang": () => print(giohang),
     

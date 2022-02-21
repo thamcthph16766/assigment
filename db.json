@@ -1,12 +1,10 @@
 {
   "products": [
     {
-      "createdAt": "2022-01-14T11:14:02.843Z",
-      "name": "Vivo V23e 8GB - 128GB",
-      "img": "http://placeimg.com/640/480/technics",
-      "desc": "7.990.000₫",
       "id": "14",
-      "price": "100"
+      "name": "                        Tham ",
+      "img": "http://res.cloudinary.com/fptpoly/image/upload/v1645465446/WEB09-ECMA/ysovshyuvpbxprfvyr9d.jpg",
+      "desc": "1222"
     },
     {
       "createdAt": "2022-01-15T00:11:58.958Z",
@@ -25,66 +23,10 @@
       "price": "300"
     },
     {
-      "createdAt": "2022-01-10T20:33:27.477Z",
-      "name": "OPPO A94 8GB-128GB",
-      "img": "http://placeimg.com/640/480/sports",
-      "desc": "6.590.000₫",
-      "id": "19",
-      "price": "400"
-    },
-    {
-      "title": "                        hgighi",
-      "img": "http://res.cloudinary.com/fptpoly/image/upload/v1645456905/WEB09-ECMA/pw2k3dxvagcn1vvbiiyh.jpg",
-      "desc": "12345",
-      "id": "vtaCv0s"
-    },
-    {
-      "title": "                        hgighi",
-      "img": "http://res.cloudinary.com/fptpoly/image/upload/v1645456907/WEB09-ECMA/nw9p083zrpu73ekutoph.jpg",
-      "desc": "12345",
-      "id": "FNmenH5"
-    },
-    {
-      "title": "                        hgighi",
-      "img": "http://res.cloudinary.com/fptpoly/image/upload/v1645456908/WEB09-ECMA/co7e9gkrukx4dabyophu.jpg",
-      "desc": "12345",
-      "id": "OXDlkqM"
-    },
-    {
-      "title": "                        jghvhjkh",
-      "img": "http://res.cloudinary.com/fptpoly/image/upload/v1645457057/WEB09-ECMA/fb6aqbstohsqbi98hxup.jpg",
-      "desc": "1234",
-      "id": "VH3d22O"
-    },
-    {
-      "title": "                        hjdbfhu",
-      "img": "http://res.cloudinary.com/fptpoly/image/upload/v1645457283/WEB09-ECMA/szr5clocw1hqllcrzjji.jpg",
-      "desc": "1234",
-      "id": "M4MNwPk"
-    },
-    {
-      "title": "                        hgvgug",
-      "img": "http://res.cloudinary.com/fptpoly/image/upload/v1645457357/WEB09-ECMA/cgd0m0dttdv2geehz3lx.jpg",
-      "desc": "12324",
-      "id": "uPPDlgr"
-    },
-    {
-      "title": "                        ghvuyih",
-      "img": "http://res.cloudinary.com/fptpoly/image/upload/v1645457491/WEB09-ECMA/vmtpdkurqsl0pu2aq7p3.jpg",
-      "desc": "12345",
-      "id": "-yy_SjN"
-    },
-    {
-      "title": "                        ghvuyih",
-      "img": "http://res.cloudinary.com/fptpoly/image/upload/v1645457491/WEB09-ECMA/s4oocf7rvmciyccd2wnx.jpg",
-      "desc": "12345",
-      "id": "oETPeh2"
-    },
-    {
-      "title": "                        cdjhfifehuv",
-      "img": "http://res.cloudinary.com/fptpoly/image/upload/v1645459427/WEB09-ECMA/tmopppkt76cc8a385kkf.jpg",
-      "desc": "12346",
-      "id": "gREj7KB"
+      "name": "                        jdnor",
+      "img": "http://res.cloudinary.com/fptpoly/image/upload/v1645461186/WEB09-ECMA/ssqabd7tneitv2xwdeyk.jpg",
+      "desc": "67",
+      "id": "dQSmCPs"
     }
   ],
   "posts": [

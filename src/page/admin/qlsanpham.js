@@ -64,7 +64,7 @@ const qlsanpham = {
                     <td class="px-6 py-4 whitespace-nowrap">
                     <div class="flex items-center">
                       <div class="ml-4">
-                        <a href="/editsp"><button class=" text-sm font-medium text-gray-900">Sửa</button>
+                        <a href="/admin/qlsanpham/${post.id}/edit"><button class=" text-sm font-medium text-gray-900">Sửa</button>
                         </a>
                       </div>
                       
@@ -81,8 +81,7 @@ const qlsanpham = {
       `
     },
     afterRender(){
-        const btns = document.querySelectorAll('.btn');
-        console.log(btns);
+        const btns = document.querySelectorAll('.btn')
         btns.forEach((btn) => {
             const { id } = btn.dataset;
             btn.addEventListener('click', () => {
