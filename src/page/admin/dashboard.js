@@ -2,9 +2,9 @@
 import qlsanpham from "./qlsanpham";
 
 const Dashboard = {
-    render(){
+    async render(){
         return /*html*/ `
-        ${qlsanpham.render()}
+        ${await qlsanpham.render()}
         `;
     },
 };

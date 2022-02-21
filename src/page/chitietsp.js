@@ -36,39 +36,9 @@ const chitietsp = {
 
 
                         <section aria-labelledby="options-heading" class="mt-10">
-                        <h3 id="options-heading" class="sr-only">Product options</h3>
+                        <p id="options-heading" class="sr-only">${data.price}</p>
 
-                        <form>
-                            <div>
-                            <h4 class="text-sm text-gray-900 font-medium">Color</h4>
 
-                            <fieldset class="mt-4">
-                                <legend class="sr-only">Choose a color</legend>
-                                <div class="flex items-center space-x-3">
-                                <label class="-m-0.5 relative p-0.5 rounded-full flex items-center justify-center cursor-pointer focus:outline-none ring-gray-400">
-                                    <input type="radio" name="color-choice" value="White" class="sr-only" aria-labelledby="color-choice-0-label">
-                                    <p id="color-choice-0-label" class="sr-only">White</p>
-                                    <span aria-hidden="true" class="h-8 w-8 bg-white border border-black border-opacity-10 rounded-full"></span>
-                                </label>
-                                <label class="-m-0.5 relative p-0.5 rounded-full flex items-center justify-center cursor-pointer focus:outline-none ring-gray-400">
-                                    <input type="radio" name="color-choice" value="Gray" class="sr-only" aria-labelledby="color-choice-1-label">
-                                    <p id="color-choice-1-label" class="sr-only">Gray</p>
-                                    <span aria-hidden="true" class="h-8 w-8 bg-gray-200 border border-black border-opacity-10 rounded-full"></span>
-                                </label>
-                                <label class="-m-0.5 relative p-0.5 rounded-full flex items-center justify-center cursor-pointer focus:outline-none ring-gray-900">
-                                    <input type="radio" name="color-choice" value="Black" class="sr-only" aria-labelledby="color-choice-2-label">
-                                    <p id="color-choice-2-label" class="sr-only">Black</p>
-                                    <span aria-hidden="true" class="h-8 w-8 bg-gray-900 border border-black border-opacity-10 rounded-full"></span>
-                                </label>
-                                </div>
-                            </fieldset>
-                            </div>
-                            
-                            </fieldset>
-                            </div>
-
-                            <button type="submit" class="mt-6 w-full bg-red-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-600">Thêm giỏ hàng</button>
-                        </form>
                         </section>
                     </div>
                     </div>

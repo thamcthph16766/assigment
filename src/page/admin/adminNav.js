@@ -10,7 +10,7 @@ const adminNav = {
       
                 <a href="/qlsanpham" class="text-base font-medium text-gray-900 hover:text-gray-700"> Quản lý sản phẩm </a>
       
-                <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700"> Quản lý khuyến mại </a>
+                <a href="/qlkhuyenmai" class="text-base font-medium text-gray-900 hover:text-gray-700"> Quản lý khuyến mại </a>
       
                 <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700"> Thành viên </a>
             </div>

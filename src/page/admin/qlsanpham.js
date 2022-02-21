@@ -18,13 +18,13 @@ const qlsanpham = {
                 <thead class="bg-gray-50">
                   <tr>
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Hình ảnh</th>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tiêu đề</th>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Giá sản phẩm</th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Giá</th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
                     <th scope="col" class="relative px-6 py-3">
                       <button class="btn btn-remove sr-only">Delete</button>
                     </th>
                     <th scope="col" class="relative px-6 py-3">
-                      <span class="sr-only"><a href="/editsp">Edit</span>
+                      <button class="sr-only"><a href="/editsp">Edit</button>
                     </th>
                   </tr>
                 </thead>
@@ -39,10 +39,33 @@ const qlsanpham = {
                         </div>
                         <div class="ml-4">
                           <div class="text-sm font-medium text-gray-900">${post.name}</div>
-                          <div class="text-sm text-gray-500">${post.desc}</div>
                         </div>
                       </div>
                     </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <div class="flex items-center">
+                        <div class="ml-4">
+                          <div class="text-sm font-medium text-gray-900">${post.desc}</div>
+                        </div>
+                        
+                      </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <div class="flex items-center">
+                        <div class="ml-4">
+                          <button class="text-sm font-medium text-gray-900">Xóa</button>
+                        </div>
+                        
+                      </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="flex items-center">
+                      <div class="ml-4">
+                        <div data-id="${post.id}" class="btn btn-remove text-sm font-medium text-gray-900">Sửa</div>
+                      </div>
+                      
+                    </div>
+                  </td>
                   </tr>
                   `).join("")}
                 </tbody>

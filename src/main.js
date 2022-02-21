@@ -24,7 +24,6 @@ router.on({
     "/sanpham": () => print(sanpham),
     "/sanpham/:id": ({ data }) => print(chitietsp, data.id),
     "/khuyenmai": () => print(khuyenmai),
-    "/khuyenmai/:id": () => print(chitietkm),
     "/gioithieu": () => print(gioithieu),
     "/dashboard": () => print(dashboard),
     "/sign_in": () => print(sign_in),
