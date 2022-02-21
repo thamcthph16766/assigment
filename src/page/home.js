@@ -4,7 +4,6 @@ import sanpham from "../page/sanpham";
 const Home = {
       async render(){
         return /*html*/`
-        
         ${Header.render()}
         ${banner.render()}
 

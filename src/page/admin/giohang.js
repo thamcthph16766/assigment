@@ -27,9 +27,6 @@ const giohang = {
                     <th scope="col" class="relative px-6 py-3">
                       <button class="btn btn-remove sr-only">Delete</button>
                     </th>
-                    <th scope="col" class="relative px-6 py-3">
-                      <button class="sr-only"><a href="/editsp">Edit</button>
-                    </th>
                   </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
@@ -61,14 +58,6 @@ const giohang = {
                         
                       </div>
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="flex items-center">
-                      <div class="ml-4">
-                        <div data-id="" class="btn btn-remove text-sm font-medium text-gray-900">Sửa</div>
-                      </div>
-                      
-                    </div>
-                  </td>
                   </tr>
                   `).join("")}
                 </tbody>
@@ -84,14 +73,14 @@ const giohang = {
         // tạo vòng lặp để lấy từng button element
         btns.forEach((btn) => {
             // lấy giá trị ID thông qua thuộc tính data-id của button
-            const { id } = btn.dataset;
+            const  id  = btn.dataset.id;
             btn.addEventListener("click", () => {
                 const confirm = window.confirm("Bạn có chắc chắn muốn xóa không?");
                 if (confirm) {
                     remove(id).then(() => {
                         toastr.success("Bạn đã xóa thành công");
                     }).then(() => {
-                        reRender(CategoryHome, "#app");
+                        reRender(giohang, "#app");
                     });
                 }
             });

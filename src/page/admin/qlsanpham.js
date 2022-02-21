@@ -1,5 +1,8 @@
-import { getAll, remove } from "../../../src/api/posts";
+import { getAll, remove } from "../../../src/api/product";
 import adminNav from "./adminNav";
+import { reRender } from "../../utils";
+import toastr from "toastr";
+import "toastr/build/toastr.min.css";
 const qlsanpham = {
     async render(){
         
@@ -21,7 +24,7 @@ const qlsanpham = {
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Giá</th>
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
                     <th scope="col" class="relative px-6 py-3">
-                      <button class="btn btn-remove sr-only">Delete</button>
+                      <button class=" sr-only">Delete</button>
                     </th>
                     <th scope="col" class="relative px-6 py-3">
                       <button class="sr-only"><a href="/editsp">Edit</button>
@@ -53,7 +56,7 @@ const qlsanpham = {
                     <td class="px-6 py-4 whitespace-nowrap">
                       <div class="flex items-center">
                         <div class="ml-4">
-                          <button data-id=${post.id} class="btn btn-remove" class="text-sm font-medium text-gray-900">Xóa</button>
+                          <button data-id=${post.id}  class="btn btn-remove text-sm font-medium text-gray-900">Xóa</button>
                         </div>
                         
                       </div>
@@ -61,8 +64,8 @@ const qlsanpham = {
                     <td class="px-6 py-4 whitespace-nowrap">
                     <div class="flex items-center">
                       <div class="ml-4">
-                        <a href="/editsp"><button data-id="${post.id}" class="btn btn-remove text-sm font-medium text-gray-900">Sửa</button><//
-                        /a>
+                        <a href="/editsp"><button class=" text-sm font-medium text-gray-900">Sửa</button>
+                        </a>
                       </div>
                       
                     </div>
@@ -79,6 +82,7 @@ const qlsanpham = {
     },
     afterRender(){
         const btns = document.querySelectorAll('.btn');
+        console.log(btns);
         btns.forEach((btn) => {
             const { id } = btn.dataset;
             btn.addEventListener('click', () => {
@@ -87,7 +91,7 @@ const qlsanpham = {
                   remove(id).then(() => {
                     toastr.success("Bạn đã xóa thành công");
                 }).then(() => {
-                    reRender(ProductHome, "#app");
+                    reRender(qlsanpham, "#app");
                     })
                 }
             })

@@ -1,6 +1,8 @@
 import adminNav from "./adminNav";
 import axios from "axios";
 import { add } from "../../../src/api/product";
+import Dashboard from "./dashboard";
+import qlsanpham from "./qlsanpham";
 
 const addsp = {
     render(){
@@ -17,7 +19,7 @@ const addsp = {
                 <div>
                     <label for="about" class="block text-sm font-medium text-gray-500"> Tiêu đề </label>
                         <div class="mt-1">
-                        <textarea  id="title-post" name="about" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-500 rounded-md">
+                        <textarea  id="name-post" name="about" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-500 rounded-md">
                         </textarea>
                         </div>
                     </div>
@@ -35,10 +37,12 @@ const addsp = {
                         </svg>
                         <div class="flex text-sm text-gray-600">
                         <label for="file-upload" class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
-                            <span type="file"  id="img-post">Upload a file</span>
-                            <div><input id="img-preview" type="file" class="sr-only"></div>
+                            
+                        <div class="w-3xl grid grid-cols-2 gap-8">
+                        <div><input type="file" class="border border-black" id="img-post" /></div>
+                        <div><img width="200" src="https://thumbs.dreamstime.com/b/no-thumbnail-image-placeholder-forums-blogs-websites-148010362.jpg" id="img-preview"/></div>
+                    </div>
                         </label>
-                        <p class="pl-1">or drag and drop</p>
                         </div>
                         <p class="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
                     </div>
@@ -57,8 +61,8 @@ const addsp = {
     const formAdd = document.querySelector("#form-add-post");
     const imgPreview = document.querySelector("#img-preview");
     const imgPost = document.querySelector("#img-post");
-    const CLOUDINARY_API_URL = "https://api.cloudinary.com/v1_1/ecommercer2021/image/upload";
-    const CLOUDINARY_PRESET = "jkbdphzy";
+    const CLOUDINARY_API_URL = "https://api.cloudinary.com/v1_1/fptpoly/image/upload";
+    const CLOUDINARY_PRESET = "WEB16309";
 
     formAdd.addEventListener("submit", async function (e) {
         e.preventDefault();
@@ -73,10 +77,17 @@ const addsp = {
             }
         })
         add({
-            title: document.querySelector("#title-post").value,
+            name: document.querySelector("#name-post").value,
             img: data.url,
             desc: document.querySelector("#desc-post").value,
-        });
+        })
+        .then(
+            () => {
+                window.location.href = "/qlsanpham";
+            },
+        )
+        ;
+        
     });
   },
 };
