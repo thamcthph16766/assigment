@@ -19,6 +19,7 @@ const Header = {
                                     <a href="/gioithieu" class="text-white hover:text-gray-300  px-3 py-2 rounded-md text-sm font-medium">Giới thiệu</a>
                     
                                     <a href="/dashboard" class="text-white hover:text-gray-300  px-3 py-2 rounded-md text-sm font-medium">Admin</a>
+                                    <a href="/giohang" class="text-white hover:text-gray-300  px-3 py-2 rounded-md text-sm font-medium">Giỏ hàng</a>
                                 </div>
                             </div>
                         </div>

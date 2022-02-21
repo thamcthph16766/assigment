@@ -1,14 +1,18 @@
-import { getAll, remove } from "../../../src/api/posts";
-import adminNav from "./adminNav";
-const qlsanpham = {
-    async render(){
-        
-            const { data } = await getAll();
+import toastr from "toastr";
+
+import Header from "../../components/header";
+// import addHome from "./add";
+import "toastr/build/toastr.min.css";
+import { getAll, remove } from "../../api/cart";
+
+const giohang = {
+    
+    async  render() {
+        const { data } = await getAll();
         return /*html*/ `
-        
-        ${adminNav.render()}
+        ${Header.render()}
         <div class="rounded-md shadow">
-              <a href="/addsp" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700 md:py-4 md:text-lg md:px-10">Thêm sản phẩm</a>
+              <a href="/addkm" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700 md:py-4 md:text-lg md:px-10">Giỏ hàng</a>
             </div>
         <div class="flex flex-col">
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -18,7 +22,7 @@ const qlsanpham = {
                 <thead class="bg-gray-50">
                   <tr>
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Hình ảnh</th>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Giá</th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nội dung</th>
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
                     <th scope="col" class="relative px-6 py-3">
                       <button class="btn btn-remove sr-only">Delete</button>
@@ -29,23 +33,22 @@ const qlsanpham = {
                   </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
-
-                ${data.map((post) => /*html */ `
+                ${data.map((post, index) => /* html */`
                   <tr>
                     <td class="px-6 py-4 whitespace-nowrap">
                       <div class="flex items-center">
                         <div class="flex-shrink-0 h-10 w-10">
-                          <img class="h-10 w-10 rounded-full" src="${post.img}" alt="">
+                          <img class="h-10 w-10 rounded-full" src="" alt="">
                         </div>
                         <div class="ml-4">
-                          <div class="text-sm font-medium text-gray-900">${post.name}</div>
+                          <div class="text-sm font-medium text-gray-900"></div>
                         </div>
                       </div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
                       <div class="flex items-center">
                         <div class="ml-4">
-                          <div class="text-sm font-medium text-gray-900">${post.desc}</div>
+                          <div class="text-sm font-medium text-gray-900"></div>
                         </div>
                         
                       </div>
@@ -53,7 +56,7 @@ const qlsanpham = {
                     <td class="px-6 py-4 whitespace-nowrap">
                       <div class="flex items-center">
                         <div class="ml-4">
-                          <button data-id=${post.id} class="btn btn-remove" class="text-sm font-medium text-gray-900">Xóa</button>
+                          <button class="text-sm font-medium text-gray-900">Xóa</button>
                         </div>
                         
                       </div>
@@ -61,8 +64,7 @@ const qlsanpham = {
                     <td class="px-6 py-4 whitespace-nowrap">
                     <div class="flex items-center">
                       <div class="ml-4">
-                        <a href="/editsp"><button data-id="${post.id}" class="btn btn-remove text-sm font-medium text-gray-900">Sửa</button><//
-                        /a>
+                        <div data-id="" class="btn btn-remove text-sm font-medium text-gray-900">Sửa</div>
                       </div>
                       
                     </div>
@@ -74,24 +76,26 @@ const qlsanpham = {
             </div>
           </div>
         </div>
-      </div>
-      `
+      </div> `;
     },
-    afterRender(){
-        const btns = document.querySelectorAll('.btn');
+    afterRender() {
+        // lấy toàn bộ button thông qua class
+        const btns = document.querySelectorAll(".btn");
+        // tạo vòng lặp để lấy từng button element
         btns.forEach((btn) => {
+            // lấy giá trị ID thông qua thuộc tính data-id của button
             const { id } = btn.dataset;
-            btn.addEventListener('click', () => {
-                const confirm = window.confirm("Bạn có muốn xóa sản phẩm này không?");
-                if(confirm){
-                  remove(id).then(() => {
-                    toastr.success("Bạn đã xóa thành công");
-                }).then(() => {
-                    reRender(ProductHome, "#app");
-                    })
+            btn.addEventListener("click", () => {
+                const confirm = window.confirm("Bạn có chắc chắn muốn xóa không?");
+                if (confirm) {
+                    remove(id).then(() => {
+                        toastr.success("Bạn đã xóa thành công");
+                    }).then(() => {
+                        reRender(CategoryHome, "#app");
+                    });
                 }
-            })
+            });
         });
-    }
-}
-export default qlsanpham;
+    },
+};
+export default giohang;

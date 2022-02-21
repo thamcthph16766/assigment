@@ -11,6 +11,7 @@ import sign_up from "./page/sign_up";
 import qlsanpham from "./page/admin/qlsanpham";
 import addsp from "./page/admin/addsp";
 import qlkhuyenmai from "./page/admin/qlkhuyenmai";
+import giohang from "./page/admin/giohang";
 
 const router = new Navigo("/", { linksSelector: "a", hash: true });
 
@@ -18,6 +19,7 @@ const print = async (content, id) => {
     document.querySelector("#app").innerHTML = await content.render(id);
     if (content.afterRender) await content.afterRender(id);
 };
+
 
 router.on({
     "/": () => print(Home),
@@ -31,6 +33,7 @@ router.on({
     "/qlsanpham": () => print(qlsanpham),
     "/addsp": () => print(addsp),
     "/qlkhuyenmai": () => print(qlkhuyenmai),
+    "/giohang": () => print(giohang),
     
     
 });
