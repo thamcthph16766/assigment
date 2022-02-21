@@ -1,15 +1,13 @@
 import adminNav from "./adminNav";
-import axios from "axios";
-import { add } from "../../../src/api/product";
 
-const addsp = {
+const addkm = {
     render(){
         return /*html*/ `
 
         ${adminNav.render()}
 
             <div class="mt-5 md:mt-0 md:col-span-2">
-            <form id="form-add-post" method="POST">
+            <form action="#" method="POST">
             <div class="shadow sm:rounded-md sm:overflow-hidden">
                 <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
                 
@@ -17,17 +15,29 @@ const addsp = {
                 <div>
                     <label for="about" class="block text-sm font-medium text-gray-500"> Tiêu đề </label>
                         <div class="mt-1">
-                        <textarea  id="title-post" name="about" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-500 rounded-md">
-                        </textarea>
+                        <textarea id="about" name="about" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-500 rounded-md"></textarea>
                         </div>
                     </div>
                     <label for="about" class="block text-sm font-medium text-gray-500"> Giá sản phẩm</label>
                         <div class="mt-1">
-                        <textarea id="desc-post" name="about" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-500 rounded-md"></textarea>
+                        <textarea id="about" name="about" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-500 rounded-md"></textarea>
                         </div>
                     </div>
+    
                 <div>
                     <label class="block text-sm font-medium text-gray-700"> Hình ảnh </label>
+                    <div class="mt-1 flex items-center">
+                    <span class="inline-block h-12 w-12 rounded-full overflow-hidden bg-gray-100">
+                        <svg class="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                    </span>
+                    <button type="button" class="ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Change</button>
+                    </div>
+                </div>
+    
+                <div>
+                    <label class="block text-sm font-medium text-gray-700"> Cover photo </label>
                     <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
                     <div class="space-y-1 text-center">
                         <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
@@ -35,8 +45,8 @@ const addsp = {
                         </svg>
                         <div class="flex text-sm text-gray-600">
                         <label for="file-upload" class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
-                            <span type="file"  id="img-post">Upload a file</span>
-                            <input id="img-preview" type="file" class="sr-only">
+                            <span>Upload a file</span>
+                            <input id="file-upload" name="file-upload" type="file" class="sr-only">
                         </label>
                         <p class="pl-1">or drag and drop</p>
                         </div>
@@ -52,32 +62,6 @@ const addsp = {
             </form>
         </div>
         `;
-  },
-  afterRender() {
-    const formAdd = document.querySelector("#form-add-post");
-    const imgPreview = document.querySelector("#img-preview");
-    const imgPost = document.querySelector("#img-post");
-    const CLOUDINARY_API_URL = "https://api.cloudinary.com/v1_1/ecommercer2021/image/upload";
-    const CLOUDINARY_PRESET = "jkbdphzy";
-
-    formAdd.addEventListener("submit", async function (e) {
-        e.preventDefault();
-        const file = imgPost.files[0];
-
-        const formData = new FormData();
-        formData.append("file", file);
-        formData.append("upload_preset", CLOUDINARY_PRESET);
-        const { data } = await axios.post(CLOUDINARY_API_URL, formData, {
-            headers: {
-                "Content-Type": "application/form-data"
-            }
-        })
-        add({
-            title: document.querySelector("#title-post").value,
-            img: data.url,
-            desc: document.querySelector("#desc-post").value,
-        });
-    });
-  },
+    },
 };
-export default addsp;
+export default addkm;

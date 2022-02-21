@@ -1,10 +1,10 @@
-import adminNav from "./adminNav";
-import qlkhuyenmai from "./qlkhuyenmai";
+
+import qlsanpham from "./qlsanpham";
+
 const Dashboard = {
     render(){
         return /*html*/ `
-        ${adminNav.render()}
-        ${qlkhuyenmai.render()}
+        ${qlsanpham.render()}
         `;
     },
 };

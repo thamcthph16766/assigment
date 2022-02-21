@@ -1,9 +1,9 @@
 import Header from "../components/header";
-import datasp from "../page/datasp";
+import {get} from "../api/product";
 
 const chitietsp = {
-    render(id){
-        const post = datasp.find(post => post.id === id);
+    async render(id){
+        const { data } = await get(id);
         return /*html*/ `
         ${Header.render}
 
@@ -24,15 +24,15 @@ const chitietsp = {
 
                     <div class="w-full grid grid-cols-1 gap-y-8 gap-x-6 items-start sm:grid-cols-12 lg:gap-x-8">
                     <div class="aspect-w-2 aspect-h-3 rounded-lg bg-gray-100 overflow-hidden sm:col-span-4 lg:col-span-5">
-                        <img src="${post.img}" alt="Two each of gray, white, and black shirts arranged on table." class="object-center object-cover">
+                        <img src="${data.img}" alt="Two each of gray, white, and black shirts arranged on table." class="object-center object-cover">
                     </div>
                     <div class="sm:col-span-8 lg:col-span-7">
-                        <h2 class="text-2xl font-extrabold text-gray-900 sm:pr-12">${post.title}</h2>
+                        <h2 class="text-2xl font-extrabold text-gray-900 sm:pr-12">${data.name}</h2>
 
                         <section aria-labelledby="information-heading" class="mt-2">
                         <h3 id="information-heading" class="sr-only"></h3>
 
-                        <p class="text-2xl text-gray-900">${post.decs}</p>
+                        <p class="text-2xl text-gray-900">${data.desc}</p>
 
 
                         <section aria-labelledby="options-heading" class="mt-10">

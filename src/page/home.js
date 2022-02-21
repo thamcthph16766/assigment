@@ -2,7 +2,7 @@ import Header from "../components/header";
 import banner from "../components/banner";
 import sanpham from "../page/sanpham";
 const Home = {
-    render(){
+      async render(){
         return /*html*/`
         
         ${Header.render()}
@@ -46,7 +46,8 @@ const Home = {
                 <img src="./src/img/oppo.jpg" alt="Walnut card tray filled with cards and card angled in dedicated groove." class="bg-gray-100 rounded-lg">
               </div>
             </div>
-            ${sanpham.render()}
+            
+            ${await sanpham.render()}
 
         </div>
           

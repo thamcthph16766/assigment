@@ -1,21 +1,21 @@
 import instance from "./config";
 
 export const getAll = () => {
-    const url = `/sanpham`;
+    const url = `/products`;
     return instance.get(url);
 };
 export const get = (id) => {
-    const url = `/sanpham/${id}`;
+    const url = `/products/${id}`;
     return instance.get(url);
 };
 export const add = (post) => {
-    const url = `/sanpham/`;
+    const url = `/products/`;
     return instance.post(url, post);
 };
 export const remove = (id) => {
-    const url = `/sanpham/${id}`;
+    const url = `/products/${id}`;
     return instance.delete(url);
 };
 export const update = (post) => {
-    const url = `/sanpham/${post.id}`
+    const url = `/products/${post.id}`
 };

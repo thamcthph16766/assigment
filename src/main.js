@@ -8,6 +8,9 @@ import chitietsp from "./page/chitietsp";
 import sanpham from "./page/sanpham";
 import sign_in from "./page/sign_in";
 import sign_up from "./page/sign_up";
+import qlsanpham from "./page/admin/qlsanpham";
+import addsp from "./page/admin/addsp";
+import qlkhuyenmai from "./page/admin/qlkhuyenmai";
 
 const router = new Navigo("/", { linksSelector: "a", hash: true });
 
@@ -19,13 +22,17 @@ const print = async (content, id) => {
 router.on({
     "/": () => print(Home),
     "/sanpham": () => print(sanpham),
-    "/sanpham/:id": ({ datasp }) => print(chitietsp, datasp.id),
+    "/sanpham/:id": ({ data }) => print(chitietsp, data.id),
     "/khuyenmai": () => print(khuyenmai),
     "/khuyenmai/:id": () => print(chitietkm),
     "/gioithieu": () => print(gioithieu),
     "/dashboard": () => print(dashboard),
     "/sign_in": () => print(sign_in),
     "/sign_up": () => print(sign_up),
+    "/qlsanpham": () => print(qlsanpham),
+    "/addsp": () => print(addsp),
+    "/qlkhuyenmai": () => print(qlkhuyenmai),
+    
     
 });
 
