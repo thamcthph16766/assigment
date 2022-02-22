@@ -12,6 +12,7 @@ import addsp from "./page/admin/addsp";
 import edit from "./page/admin/editsp";
 import qlkhuyenmai from "./page/admin/qlkhuyenmai";
 import giohang from "./page/admin/giohang";
+import thanhvien from "./page/admin/thanhvien";
 
 const router = new Navigo("/", { linksSelector: "a", hash: true });
 
@@ -35,7 +36,7 @@ router.on({
     "/admin/qlsanpham/:id/edit": ({ data }) => print(edit, data.id),
     "/qlkhuyenmai": () => print(qlkhuyenmai),
     "/giohang": () => print(giohang),
-    
+    "/thanhvien": () => print(thanhvien),
     
 });
 
